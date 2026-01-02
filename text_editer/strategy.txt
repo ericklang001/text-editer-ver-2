@@ -1,0 +1,134 @@
+在战争中学习战争
+
+沟通漏斗
+
+登录指引界面 {
+    壁纸
+    指引 {
+        更换壁纸：点击触发{
+
+        }
+        新建文件：点击触发{
+            选择文件类型：
+            自由编辑-富文本模式 [
+                
+            ]
+            多标签页编辑-笔记本模式 [
+                左侧类似工作区管理的标签组，右边是已经打开的标签的文本编辑区
+                工作区管理标签组 {
+
+                }
+                文本编辑区 {
+                    
+                }
+            ]
+            便签编辑-简约记事本 [
+                类似 jupyter notebook 的编辑模式，在canvas创建的“窗口”上创建每一个 Note 对象 {
+                    每个 Note 对象包括 {
+                        标题栏 [
+                            两个控件，一个是用于显示标题的标签控件，一个是用于修改标题的输入框控件，每个时刻仅显示单个控件
+                        ]
+                        文本编辑栏 [
+                            包括一个 Text 组件和纵向的滚动条
+                        ]
+                        工具栏 [
+                            包括功能按钮和用于分隔的修饰标签
+                            功能按钮 {
+                                new note [创建新的 Note 对象]，
+                                delete note [删除当前的 Note 对象，如果是最后一个组件，不执行操作]，
+                                theme [设置当前 Note 对象的主题，点击打开一个 Note 定制的主题设置窗口]，
+                                rename [重命名 Note 对象的标题]
+                            }
+                        ]
+                    }
+                }
+            ]
+        }
+        最近文件：常驻{
+            显示最近编辑的最多10个文件：点击文件可以打开文件
+        }
+    }
+}
+
+登录指引界面与编辑界面分离
+登录界面相关类中包含两个顶层窗口，当打开文件或者创建新文件是打开编辑器的顶层窗口，先关闭当前
+    登录指引界面，然后再打开编辑器                                                          
+
+
+labelText config widgets 
+    paned    :: PanedWindow < self.paned 
+        labfrm     :: LabelFrame < self.labfrm 
+            actionfrm    :: Frame < self.actionfrm 
+                btn('add')    ::Button < not self attr yet ...
+            
+            btnfrm     :: Frame < self.btnfrm 
+                label_btn   ::Button < not self.attr yet ...
+                separator     :: Separator < not self attr yet ...
+        
+        self.textfrm    :: LabelFrame 
+            text    ::Text < self.lab_dict  
+   
+
+noteBook config widgets
+    class NoteBook: 
+    frm     :: Frame::NoteBase < self.frm 
+        title   :: Frame < self.title 
+            t_lab       ::Label < self.t_lab 
+            t_ent       ::Entry < self.t_ent 
+
+        edit    :: Frame < self.edit 
+            text        ::Text < self.text 
+            yscrollbar  :: Scrollbar < not self.attr yet ...
+
+        cmd     :: Frame < self.cmd 
+            btn('new name')     ::Button < not self.attr yet ...
+            btn('delete note')      ::Button < not self.attr yet ...
+            btn('theme')        ::Button < not self.attr yet ...
+            btn('rename')       ::Button < not self.attr yet ...
+
+            labels : lab('|')       ::Label < not self.attr yet ...
+
+    class NoteBase:
+        containter      ::Frame < self.containter 
+
+    class CanvasBase:
+        region      ::Frame < self.region 
+            canvas      ::Canvas < self.canvas 
+            yscrollbar      ::Scrollabar < self.yscrollbar 
+
+
+freeEdit config widgets 
+    region      ::Frame < self.region 
+    edit      ::Frame < self.edit 
+        text      ::Text < self.text 
+        xscrollbar      ::Scrollbar < self.xscrollbar 
+        yscrollbar      ::Scrollbar < self.yscrollar 
+
+    statebar    ::Frame < self.statebar 
+        row     :: Label < self.row 
+        column      :: Label < self.column 
+        count       :: Label < self.count 
+        fonttype    :: Label < self.fonttype 
+
+
+toolsbar config widgets 
+    region      ::Frame < self.region 
+        labfrm      ::Frame < self.labfrm 
+            region      ::Frame < self.labelmanager.region 
+                lab     ::Button < self.labelmanager.labs kw.value.lab ::LabelUnion.lab 
+                close     ::Button <self.labelmanager.labs kw.value.lab ::LabellUnion.close
+
+        configfrm       ::Frame < self.configfrm 
+            optmenu     ::Menu < self.optmenu 
+            buttons: self.theme, self.new     ::Button <self.new, self.configbtn 
+
+        fontfrm       ::Frame < self.fontfrm 
+            label       ::Label < not self attr yet ... 
+            checkbutton     ::Combobox  < not create and self attr yet ...
+
+
+UI fg: self.cmd_labs, self.cmd_btns, t_lab, t_ent 
+text fg: 
+
+region, canvas, notebase, region yscrollbar, title, t_ent, edit, 
+text bg, text yscrollbar, separator bg 
