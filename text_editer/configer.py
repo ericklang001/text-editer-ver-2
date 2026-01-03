@@ -487,7 +487,7 @@ class ConfigableWidget:
 
 
 class ConfigManager:
-    def __init__(self, editers, code='2'):
+    def __init__(self, editers, code='4'):
         self.editers = editers
         self.toolsbar = None 
         self.theme_code = code 

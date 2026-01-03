@@ -10,7 +10,7 @@ class CanvasBase:
         self.canvas = None 
         self.configable_widget = None 
 
-        self.theme_code = '2'
+        self.theme_code = '4'
 
         self.__init_canvas()
         self.__set_configable_widget()
@@ -72,7 +72,7 @@ class CanvasBase:
 
 class NoteBase:
     def __init__(self, masterbase):
-        self.theme_code = '2'
+        self.theme_code = '4'
         if isinstance(masterbase, CanvasBase):
             self.master = masterbase.get_canvas()
             self.theme_code = masterbase.theme_code

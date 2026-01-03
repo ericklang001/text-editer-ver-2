@@ -12,7 +12,7 @@ class LabelText:
         self.master = master 
         self.mode = mode
         
-        self.theme_code = '2'
+        self.theme_code = '4'
         self.active_fg = __import__('theme').theme[self.theme_code]['labelText']['active']['fg']['open lab fg']
 
         self.paned = None
@@ -265,7 +265,7 @@ class LabelText:
             self.sep_lst[pos].grid_forget()
             # regrid the widgets
             self.lab_lst[pos].grid(row=pos*2, column=0, padx=5, sticky='nw')
-            self.rmbtn_lst[pos].grid(row=pos*2, column=1, padx=5, sticky='ne')
+            self.rmbtn_lst[pos].grid(row=pos*2, column=1, padx=5, sticky='nw')
             self.sep_lst[pos].grid(row=pos*2+1, column=0, columnspan=2, padx=5, sticky='we')
 
         self.__init_open_text()
@@ -370,9 +370,6 @@ if __name__ == '__main__':
 
 
     labelText = LabelText(root, 'new')
-    # labelText.configable_widget.set_widget_color(fg_dict=__import__('theme').theme['2']['labelText']['fg'],
-    #                     bg_dict=__import__('theme').theme['2']['labelText']['bg'],
-    #                     active_dict={'fg': {'open lab fg':'red'}, 'bg': {}})
     
     labelText.theme_code = '4'
     labelText.configable_widget.set_theme_code(labelText.theme_code)

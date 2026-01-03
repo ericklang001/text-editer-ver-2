@@ -102,15 +102,17 @@ class LabelUnion:
 
 
         def rename_lab(self, event):
-            popup_level = Toplevel(self.region, bg=__import__('theme').theme[self.theme_code]['window']['popup bg'])
+            win_color = __import__('theme').theme[self.theme_code]['window']
+            popup_level = Toplevel(self.region, bg=win_color['popup bg'])
             popup_level.overrideredirect(True)
             popup_level.geometry(f'+{event.x_root}+{event.y_root}')
             popup_level.attributes('-topmost', True)
 
-            Label(popup_level, text='new name', font='Consolas 14 bold',
-                    fg=__import__('theme').theme[self.theme_code]['window']['rename lab fg']
+            Label(popup_level, text='new name', font='Consolas 14 bold', bg=win_color['rename lab bg'],
+                    fg=win_color['rename lab fg']
                     ).pack(side='left', padx=5, pady=10)
-            entry = Entry(popup_level, width=15, font='consolas 14 normal')
+            entry = Entry(popup_level, width=15, font='consolas 14 normal', fg=win_color['rename ent fg'],
+                            bg=win_color['rename ent bg'])
             entry.focus_set()
             entry.pack(padx=5, pady=10)
 

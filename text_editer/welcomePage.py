@@ -51,16 +51,16 @@ class Launcher:
         self.label_text = None 
         self.note_book = None 
         self.free_edit = None
-        self.cancel = None 
+        self.cancel_btn = None 
 
         self.toolsbar = None 
-        self.configManager = ConfigManager(Editer.created_obj, '2')
+        self.configManager = ConfigManager(Editer.created_obj, '4')
 
 
     def __init_welcome(self):
         # create basis containers
-        self.wallpaper = Label(self.master, bg='yellow')      # use to show wallpaper
-        self.leader = Canvas(self.master, width=Launcher.default_leader_width, bg='lightblue')      # contains some quick operation
+        self.wallpaper = Label(self.master, bg='white')      # use to show wallpaper
+        self.leader = Canvas(self.master, width=Launcher.default_leader_width, bg='white')      # contains some quick operation
         yscrollbar = Scrollbar(self.master, orient='vertical', )
         
         # pack all the basis containers 
@@ -89,10 +89,10 @@ class Launcher:
         # create a self.leader_container frame obj on the leader canvas
         self.__init_leader_container()
 
-        self.theme = Button(self.leader_container, text='theme', relief='groove', bd=2, 
+        self.theme = Button(self.leader_container, text='theme', relief='groove', bd=2, bg='white',
                             command=lambda: print('change theme'))
         self.__init_created_new()
-        self.current = Frame(self.leader_container, relief='groove', bd=2) 
+        self.current = Frame(self.leader_container, relief='groove', bd=2, bg='white') 
 
         self.theme.pack(side='top', padx=5, pady=5, fill='x')
         self.new.pack(side='top', padx=5, pady=5, fill='x')
@@ -113,6 +113,7 @@ class Launcher:
         self.leader.coords(container_obj.get_container_id(), x, y)
         self.leader.itemconfig(container_obj.get_container_id(), height=height)
         self.leader_container = container_obj.get_container()
+        self.leader_container.config(bg='white')
 
 
     def __init_created_new(self):
@@ -120,8 +121,8 @@ class Launcher:
             self.__init_leader_container()
 
         # create necessary widgets about create new function
-        self.new = Frame(self.leader_container)
-        self.create = Button(self.new, text='create new')
+        self.new = Frame(self.leader_container, bg='white')
+        self.create = Button(self.new, text='create new', bg='white')
         if isinstance(self.manager, WinManager):
             self.create.config(command=self.__unfold_option)
         else:
@@ -136,14 +137,14 @@ class Launcher:
         self.create.config(state='disabled', text='choose mode')
         # create all the btns 
         if not self.has_createdNewWidgts:
-            self.label_text = Button(self.new, text='>>    Label Text', relief='sunken', bd=2, anchor='w', fg='blue', 
-                                 command=lambda: self.open_create_new(1))
-            self.note_book = Button(self.new, text='>>    Note Book', relief='sunken', bd=2, anchor='w', fg='blue',
-                                    command=lambda: self.open_create_new(2))
-            self.free_edit = Button(self.new, text='>>    Free Edit', relief='sunken', bd=2, anchor='w', fg='blue',
-                                    command=lambda: self.open_create_new(3))
-            self.cancel = Button(self.new, text='>>    cancel', relief='sunken', bd=2, anchor='w', fg='blue',
-                                 command=self.cancel)
+            self.label_text = Button(self.new, text='>>    Label Text', relief='sunken', bd=2, anchor='w', fg='#8be9fd', 
+                                    bg='white', command=lambda: self.open_create_new(1))
+            self.note_book = Button(self.new, text='>>    Note Book', relief='sunken', bd=2, anchor='w', fg='#8be9fd',
+                                    bg='white', command=lambda: self.open_create_new(2))
+            self.free_edit = Button(self.new, text='>>    Free Edit', relief='sunken', bd=2, anchor='w', fg='#8be9fd',
+                                    bg='white', command=lambda: self.open_create_new(3))
+            self.cancel_btn = Button(self.new, text='>>    cancel', relief='sunken', bd=2, anchor='w', fg='#8be9fd',
+                                    bg='white', command=self.cancel)
             # update widgets' state 
             self.has_createdNewWidgts = True 
 
@@ -151,7 +152,7 @@ class Launcher:
         self.label_text.pack(padx=5, pady=5, anchor='w', fill='x')
         self.note_book.pack(padx=5, anchor='w', fill='x')
         self.free_edit.pack(padx=5, pady=5, anchor='w', fill='x')
-        self.cancel.pack(padx=5, anchor='w', fill='x')
+        self.cancel_btn.pack(padx=5, anchor='w', fill='x')
 
 
     def cancel(self):
@@ -248,7 +249,7 @@ class ToolsBar:
         self.base = self 
         self.configManager = None 
 
-        self.theme_code = '2'
+        self.theme_code = '4'
 
         self.region = None 
 
@@ -320,8 +321,9 @@ class ToolsBar:
 
         # theme post menu
         self.theme_menu = Menu(self.configable_widget, tearoff='false', activebackground=ToolsBar.default_optmenu_abg)
-        self.theme_menu.add_command(label='theme 2', command=lambda: self.configManager.set_theme_with_code('2'))
-        self.theme_menu.add_command(label='theme 4', command=lambda: self.configManager.set_theme_with_code('4'))
+        self.theme_menu.add_command(label='vintage blue', command=lambda: self.configManager.set_theme_with_code('2'))
+        self.theme_menu.add_command(label='modern dark', command=lambda: self.configManager.set_theme_with_code('4'))
+        self.theme_menu.add_command(label='romantic pink', command=lambda: self.configManager.set_theme_with_code('5'))
         self.theme_menu.add_command(label='self config', command=lambda: print('self config'))
         
         

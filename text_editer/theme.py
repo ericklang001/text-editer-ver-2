@@ -21,7 +21,7 @@ theme = {
             'active': {
                 'fg': 
                 {
-                    'open lab fg': 'pink'
+                    'open lab fg': '#00b0f0'
                 },
                 'bg': 
                 {
@@ -97,8 +97,15 @@ theme = {
         },
         'window': {
             'bg': '#00005c',
-            'rename lab fg': 'purple',
-            'popup bg': 'pink'
+            'rename lab fg': '#ffffff',
+            'rename lab bg': '#00b0f0',
+            'rename ent fg': '#000000',
+            'rename ent bg': '#ffffff',
+            'popup bg': '#57d3ff',
+            'menu fg': '#000000',
+            'menu bg': '#ffffff',
+            'menu active fg': '#ffffff',
+            'menu active bg': '#00b0f0'
         }
         
     },
@@ -201,8 +208,125 @@ theme = {
         'window': 
         {
             'bg': '#181818',
-            'rename lab fg': 'gray',
-            'popup bg': 'black'
+            'rename lab fg': '#ffffff',
+            'rename lab bg': '#595959',
+            'rename ent fg': '#ffffff',
+            'rename ent bg': '#00b050',
+            'popup bg': '#3b3838',
+            'menu fg': '#ffffff',
+            'menu bg': '#404040',
+            'menu active fg': '#00b050',
+            'menu active bg': '#ffffff'
         }
-    }
+    },
+    '5': {
+        'labelText': 
+        {
+           'fg': {
+                'UI fg': '#fefefe', 
+                'text fg': '#ff8bd0'
+            }, 
+            'bg': {
+                'paned': '#ff9fd9',  #
+                'labfrm': '#ffd9f5', 
+                'textfrm': '#ffe7f9', 
+                'actionfrm': '#ffd9f5', 
+                'btnfrm': '#ffd9f5', 
+                'btn': '#ff61b4', 
+                'lab': '#ff61b4', 
+                'separator bg': '#ff61b4',
+                'text bg': '#ffe7f9'
+            },
+            'active':
+            {
+                'fg':
+                {
+                    'open lab fg': '#ffc4ef'
+                },
+                'bg':
+                {
+
+                }
+            }
+        },
+        'noteBook':
+        {
+            'fg': {
+                'UI fg': '#ffa3e7', 
+                'text fg': '#ff61b4', 
+            },
+            'bg': {
+                'region': '#ff9fd9', 
+                'canvas': '#ffc4ef', 
+                'region yscrollbar': '#ffffff', 
+                'notebase': '#ffffff', 
+                'frm': '#ffe7f9',
+                'title': '#ffd9f5', 
+                't_lab': '#ffd9f5', 
+                't_ent': '#ffe7f9', 
+                'edit': '#ffd9f5',
+                'text bg': '#ffe7f9', 
+                'text yscrollbar': '#ffffff', 
+                'cmd': '#ffd9f5',
+                'cmd widgets': '#ffd9f5'
+            }
+        },
+        'freeEdit': 
+        {
+            'fg': {
+                'UI fg': '#ff72be',
+                'text fg': '#ff8bd0',
+            },
+            'bg': {
+                'region': '#ff9fd9', 
+                'edit': '#ffe7f9',
+                'text bg': '#ffe7f9', 
+                'scrollbar': '#ffffff', 
+                'statebar': '#ff61b4',
+                'lab': '#ffe7f9'
+            }
+        },
+        'toolsbar': 
+        {
+            'fg': {
+                'UI fg': '#ffa3e7',
+                'close fg': '#ff61b4'
+            },
+            'bg': {
+                'region toolsbar': '#ff8bd0', 
+                'top label': '#ff61b4', 
+                'labfrm': '#ffc4ef', 
+                'configfrm': '#ffc4ef', 
+                'btn': '#ff61b4', 
+                'fontfrm': '#ff8bd0', 
+                'font lab': '#ffe7f9',
+                'region labfrm': '#ffc4ef', 
+                'lab bg': "#fd4fac",
+                'close bg': '#ffa3e7'
+            },
+            'active': {
+                'fg': 
+                {
+                    'choose fg': '#ff61b4'
+                },
+                'bg':
+                {
+                    'choose bg': '#ffffff'
+                }
+            }
+        },
+        'window': 
+        {
+            'bg': '#ffc4ef',
+            'rename lab fg': '#ffffff',
+            'rename lab bg': '#ff61b4',
+            'rename ent fg': '#ff61b4',
+            'rename ent bg': '#ffffff',
+            'popup bg': '#ff9fd9',
+            'menu fg': '#ff61b4',
+            'menu bg': '#ffffff',
+            'menu active fg': '#ffffff',
+            'menu active bg': '#ff9fd9'
+        }
+    },
 }

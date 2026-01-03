@@ -13,13 +13,13 @@ class WinManager:
 
     def __init_first(self):
         self.__first = Tk()
-        self.__first.config(bg='lightblue')
+        self.__first.config(bg='white')
 
 
     def __init_second(self):
         self.__second = Tk()
         self.__second.geometry('1700x1200')
-        self.__second.config(bg=__import__('test').theme['2']['window']['bg'])
+        self.__second.config(bg=__import__('theme').theme['4']['window']['bg'])
 
 
     def start_second(self):

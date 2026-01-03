@@ -13,7 +13,7 @@ class FreeEditer:
     def __init__(self, master):
         self.master = master
 
-        self.theme_code = '2'
+        self.theme_code = '4'
 
         self.region = None      # basic container frame
         self.edit = None        # text frame 
@@ -53,7 +53,7 @@ class FreeEditer:
         self.text.tag_config('sel', foreground='black', background='white')
         self.text.config(insertbackground='white')
         self.popupmenu = PopupMenu(self.master, self.text)
-        self.text.bind('<Button-3>', lambda event: self.popupmenu.popup(event))
+        self.text.bind('<Button-3>', lambda event: self.popupmenu.popup(event, self.theme_code))
 
     def __init_container(self):
         self.region = Frame(self.master)

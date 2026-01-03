@@ -94,11 +94,11 @@ class PopupMenu:
     def __init__(self, master, text: Text):
         self.master = master 
         self.text = text 
+
         self.menu = None 
         self.x = 0
         self.y = 0 
 
-        self.theme_code = '4'
         self.bg='white'
         self.fg='black'
         self.active_fg = 'white'
@@ -112,10 +112,10 @@ class PopupMenu:
         self.__bind_events()
         self.__init__data()
 
-    def popup(self, event):
+    def popup(self, event, theme_code):
         self.x = event.x_root 
         self.y = event.y_root 
-        self.__init_widgets(event)
+        self.__init_widgets(event, theme_code)
 
 
     def __text_tag_add(self):
@@ -130,13 +130,15 @@ class PopupMenu:
         self.font_types = ['Times', 'Consolas', '微软雅黑', '新宋体']
 
 
-    def __init_widgets(self, event):
+    def __init_widgets(self, event, theme_code):
         if self.menu is not None:
             self.menu.post(event.x_root, event.y_root)
             return  
-        
-        self.menu = Menu(self.master, tearoff='false', fg=self.fg, bg=self.bg, 
-                        activebackground=self.active_bg, activeforeground=self.active_fg)
+        win_color = __import__('theme').theme[theme_code]['window']
+        self.menu = Menu(self.master, tearoff='false', fg = win_color['menu fg'], 
+                        bg = win_color['menu bg'],
+                        activeforeground=win_color['menu active fg'], 
+                        activebackground=win_color['menu active bg'])
         self.menu.add_command(label='underline', command=self.underline)
         self.menu.add_command(label='deleteline', command=self.deleteline)
         self.menu.add_command(label='bold', command=self.bold)
@@ -144,12 +146,16 @@ class PopupMenu:
         self.menu.add_command(label='foreground', command=lambda: self.set_color('foreground'))
         self.menu.add_command(label='background', command=lambda: self.set_color('background'))
 
-        self.font_size_cascade = Menu(self.menu, tearoff='false', fg=self.fg, bg=self.bg, 
-                                    activebackground=self.active_bg, activeforeground=self.active_fg)
+        self.font_size_cascade = Menu(self.menu, tearoff='false', fg = win_color['menu fg'], 
+                        bg = win_color['menu bg'],
+                        activeforeground=win_color['menu active fg'], 
+                        activebackground=win_color['menu active bg'])
         self.menu.add_cascade(label='font-size', menu=self.font_size_cascade)
 
-        self.font_type_cascade = Menu(self.menu, tearoff='false', fg=self.fg, bg=self.bg,
-                                    activebackground=self.active_bg, activeforeground=self.active_fg)
+        self.font_type_cascade = Menu(self.menu, tearoff='false', fg = win_color['menu fg'], 
+                        bg = win_color['menu bg'],
+                        activeforeground=win_color['menu active fg'], 
+                        activebackground=win_color['menu active bg'])
         self.menu.add_cascade(label='font-type', menu=self.font_type_cascade)
 
         self.__init_font_size_cascade()
