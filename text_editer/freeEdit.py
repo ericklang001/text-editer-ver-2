@@ -1,7 +1,7 @@
 import ctypes 
 from tkinter import *
 from configer import ConfigableWidget
-
+from editFuncs import *
 
 __all__ = ['FreeEditer']
 
@@ -24,11 +24,13 @@ class FreeEditer:
         self.yscrollbar = None 
 
         self.configable_widget = None 
+        self.popupmenu = None 
 
         self.__init_container()
         self.__init_edit()
         self.__init_statebar()
         self.__set_configable_widget()
+        self.__init_popupmenu()
 
 
     def __set_configable_widget(self):
@@ -47,6 +49,11 @@ class FreeEditer:
 
         self.configable_widget.set_widget_color()
 
+    def __init_popupmenu(self):
+        self.text.tag_config('sel', foreground='black', background='white')
+        self.text.config(insertbackground='white')
+        self.popupmenu = PopupMenu(self.master, self.text)
+        self.text.bind('<Button-3>', lambda event: self.popupmenu.popup(event))
 
     def __init_container(self):
         self.region = Frame(self.master)
