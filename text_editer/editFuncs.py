@@ -91,9 +91,10 @@ class ColorChooser:
 
 
 class PopupMenu:
-    def __init__(self, master, text: Text):
+    def __init__(self, master, text: Text, theme_code='4'):
         self.master = master 
         self.text = text 
+        self.theme_code = theme_code
 
         self.menu = None 
         self.x = 0
@@ -112,10 +113,10 @@ class PopupMenu:
         self.__bind_events()
         self.__init__data()
 
-    def popup(self, event, theme_code):
+    def popup(self, event):
         self.x = event.x_root 
         self.y = event.y_root 
-        self.__init_widgets(event, theme_code)
+        self.__init_widgets(event)
 
 
     def __text_tag_add(self):
@@ -130,11 +131,11 @@ class PopupMenu:
         self.font_types = ['Times', 'Consolas', '微软雅黑', '新宋体']
 
 
-    def __init_widgets(self, event, theme_code):
+    def __init_widgets(self, event):
         if self.menu is not None:
-            self.menu.post(event.x_root, event.y_root)
-            return  
-        win_color = __import__('theme').theme[theme_code]['window']
+            self.menu.destroy()
+        
+        win_color = __import__('theme').theme[self.theme_code]['window']
         self.menu = Menu(self.master, tearoff='false', fg = win_color['menu fg'], 
                         bg = win_color['menu bg'],
                         activeforeground=win_color['menu active fg'], 
