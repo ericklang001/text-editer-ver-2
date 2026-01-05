@@ -210,8 +210,8 @@ theme = {
             'bg': '#181818',
             'rename lab fg': '#ffffff',
             'rename lab bg': '#595959',
-            'rename ent fg': '#ffffff',
-            'rename ent bg': '#00b050',
+            'rename ent bg': '#ffffff',
+            'rename ent fg': '#00b050',
             'popup bg': '#3b3838',
             'menu fg': '#ffffff',
             'menu bg': '#404040',
@@ -329,4 +329,115 @@ theme = {
             'menu active bg': '#ff9fd9'
         }
     },
+    '6':
+    {
+        'labelText': 
+        {
+           'fg': {
+                'UI fg': '#7610d3', 
+                'text fg': '#39304c'
+            }, 
+            'bg': {
+                'paned': '#bba1f0',  #
+                'labfrm': '#d6cbef', 
+                'textfrm': '#f5ebfc', 
+                'actionfrm': '#d6cbef', 
+                'btnfrm': '#d6cbef', 
+                'btn': '#d6cbef', 
+                'lab': '#d6cbef', 
+                'separator bg': '#750ad4',
+                'text bg': '#ffffff'
+            },
+            'active':
+            {
+                'fg':
+                {
+                    'open lab fg': '#000000'
+                },
+                'bg':
+                {
+
+                }
+            }
+        },
+        'noteBook':
+        {
+            'fg': {
+                'UI fg': '#7610d3', 
+                'text fg': '#bca2fd', 
+            },
+            'bg': {
+                'region': '#c3a2fe', 
+                'canvas': '#f4eafb', 
+                'region yscrollbar': '#ffffff', 
+                'notebase': '#f4eafb', 
+                'frm': '#c3a2fe',
+                'title': '#f6ecfd', 
+                't_lab': '#f6ecfd', 
+                't_ent': '#f6ecfd', 
+                'edit': '#f3ebfe',
+                'text bg': '#fffffe', 
+                'text yscrollbar': '#ffffff', 
+                'cmd': '#eeebfa',
+                'cmd widgets': '#eeebfa'
+            }
+        },
+        'freeEdit': 
+        {
+            'fg': {
+                'UI fg': '#9344da',
+                'text fg': '#9344da',
+            },
+            'bg': {
+                'region': '#d7c5fc', 
+                'edit': '#d7c5fc',
+                'text bg': '#ffffff', 
+                'scrollbar': '#ffffff', 
+                'statebar': '#d7c5fc',
+                'lab': '#efecfe'
+            }
+        },
+        'toolsbar': 
+        {
+            'fg': {
+                'UI fg': '#730ccf',
+                'close fg': '#730ccf'
+            },
+            'bg': {
+                'region toolsbar': '#ae91f6', 
+                'top label': '#b17eff', 
+                'labfrm': "#b69bf9", 
+                'configfrm': '#7309d0', 
+                'btn': '#e9f6fd', 
+                'fontfrm': '#dbcaff', 
+                'font lab': '#ece8f5',
+                'region labfrm': "#ae91f6", 
+                'lab bg': "#ffffff",
+                'close bg': '#fbedfe'
+            },
+            'active': {
+                'fg': 
+                {
+                    'choose fg': '#ffffff'
+                },
+                'bg':
+                {
+                    'choose bg': "#ae7cfe"
+                }
+            }
+        },
+        'window': 
+        {
+            'bg': '#9b91c6',
+            'rename lab fg': '#ffffff',
+            'rename lab bg': '#ad7cfe',
+            'rename ent fg': '#ffffff',
+            'rename ent bg': '#730ad1',
+            'popup bg': '#f3edff',
+            'menu fg': '#770dd8',
+            'menu bg': '#f3edff',
+            'menu active fg': '#ffffff',
+            'menu active bg': '#ac7eff'
+        }
+    }
 }

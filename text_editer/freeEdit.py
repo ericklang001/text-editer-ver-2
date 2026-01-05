@@ -50,8 +50,6 @@ class FreeEditer:
         self.configable_widget.set_widget_color()
 
     def __init_popupmenu(self):
-        self.text.tag_config('sel', foreground='black', background='white')
-        self.text.config(insertbackground='white')
         self.popupmenu = PopupMenu(self.master, self.text)
         self.text.bind('<Button-3>', self.popup)
 

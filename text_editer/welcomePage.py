@@ -137,13 +137,13 @@ class Launcher:
         self.create.config(state='disabled', text='choose mode')
         # create all the btns 
         if not self.has_createdNewWidgts:
-            self.label_text = Button(self.new, text='>>    Label Text', relief='sunken', bd=2, anchor='w', fg='#8be9fd', 
+            self.label_text = Button(self.new, text='>>    Label Text', relief='sunken', bd=2, anchor='w', fg='black', 
                                     bg='white', command=lambda: self.open_create_new(1))
-            self.note_book = Button(self.new, text='>>    Note Book', relief='sunken', bd=2, anchor='w', fg='#8be9fd',
+            self.note_book = Button(self.new, text='>>    Note Book', relief='sunken', bd=2, anchor='w', fg='black',
                                     bg='white', command=lambda: self.open_create_new(2))
-            self.free_edit = Button(self.new, text='>>    Free Edit', relief='sunken', bd=2, anchor='w', fg='#8be9fd',
+            self.free_edit = Button(self.new, text='>>    Free Edit', relief='sunken', bd=2, anchor='w', fg='black',
                                     bg='white', command=lambda: self.open_create_new(3))
-            self.cancel_btn = Button(self.new, text='>>    cancel', relief='sunken', bd=2, anchor='w', fg='#8be9fd',
+            self.cancel_btn = Button(self.new, text='>>    cancel', relief='sunken', bd=2, anchor='w', fg='black',
                                     bg='white', command=self.cancel)
             # update widgets' state 
             self.has_createdNewWidgts = True 
@@ -323,7 +323,8 @@ class ToolsBar:
         self.theme_menu = Menu(self.configable_widget, tearoff='false', activebackground=ToolsBar.default_optmenu_abg)
         self.theme_menu.add_command(label='vintage blue', command=lambda: self.configManager.set_theme_with_code('2'))
         self.theme_menu.add_command(label='modern dark', command=lambda: self.configManager.set_theme_with_code('4'))
-        self.theme_menu.add_command(label='romantic pink', command=lambda: self.configManager.set_theme_with_code('5'))
+        self.theme_menu.add_command(label='cherry pink', command=lambda: self.configManager.set_theme_with_code('5'))
+        self.theme_menu.add_command(label='light purple', command=lambda: self.configManager.set_theme_with_code('6'))
         self.theme_menu.add_command(label='self config', command=lambda: print('self config'))
         
         

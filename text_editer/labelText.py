@@ -59,7 +59,7 @@ class LabelText:
         # create basic containers 
         self.paned = PanedWindow(self.master)
         
-        self.labfrm = LabelFrame(self.paned, text='label', width=200, height=400)
+        self.labfrm = LabelFrame(self.paned, text='label', width=290, height=400)
         self.textfrm = LabelFrame(self.paned, text='text', width=600, height=400)
 
         self.actionfrm = Frame(self.labfrm, relief='groove', bd=2)
@@ -96,7 +96,7 @@ class LabelText:
                         font=self.default_font.replace('normal', 'bold'))
             btn.config(command=lambda lab=btn, content_=content: self.__open_text(lab, content_))
             # rename command widget
-            rename = Button(self.btnfrm, text='rename', width=7, relief='groove', bd=2,
+            rename = Button(self.btnfrm, text='rename', width=7, relief='flat', bd=0,
                             font=self.default_font.replace('normal', 'bold'), fg='gray',
                             command=lambda btn=btn: self.rename(btn))
             # rename entry widget
@@ -135,7 +135,7 @@ class LabelText:
                     font=self.default_font.replace('normal', 'bold'))
         btn.config(command=lambda lab=btn: self.__open_text(lab))
         # rename command widget
-        rename = Button(self.btnfrm, text='rename', width=7, relief='groove', bd=2, 
+        rename = Button(self.btnfrm, text='rename', width=7, relief='flat', bd=0, 
                         font= self.default_font.replace('normal', 'bold'), fg='gray', 
                         command=lambda btn=btn: self.rename(btn))
         # rename entry widget 
@@ -201,7 +201,7 @@ class LabelText:
                     fg=__import__('theme').theme[self.theme_code]['labelText']['fg']['UI fg'],
                     bg=__import__('theme').theme[self.theme_code]['labelText']['bg']['lab'])
         btn.config(command=lambda lab=btn, content='': self.__open_text(lab, content)) 
-        rename = Button(self.btnfrm, text='rename', relief='groove', bd=2, fg='gray', width=7, 
+        rename = Button(self.btnfrm, text='rename', relief='flat', bd=0, fg='gray', width=7, 
                         font=self.default_font.replace('normal', 'bold'), 
                         command=lambda btn=btn: self.rename(btn))
         ent = Entry(self.btnfrm, relief='sunken', bd=2, insertbackground='red', 

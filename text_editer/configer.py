@@ -531,8 +531,6 @@ class ConfigManager:
             configableWidth.set_theme_code(self.theme_code)
             configableWidth.set_widget_color() 
 
-    pass 
-
                  
         
 

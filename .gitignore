@@ -1,3 +1,4 @@
 # python cache files 
 text_editer/__pycache__/
 *.pyc 
+photo/
